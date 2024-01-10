@@ -1,10 +1,17 @@
 import React from 'react'
-import { footer } from './footer.module.css'
+import { footer, backButton } from './footer.module.css'
 
 const Footer = () => {
+    const handleClick = () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+    }
+
     return (
         <footer className={footer}>
-            <p>© 2024 Edita Ignot Photography</p>
+            <button onClick={handleClick} className={backButton}>
+                &#8593;
+            </button>
+            {/* <p>© 2024 Edita Ignot Photography</p> */}
         </footer>
     )
 }
