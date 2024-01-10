@@ -6,8 +6,7 @@ const NotFoundPage = () => {
     return (
         <body>
             <Layout title='Edita Ignot Photography'>
-                <p>We're missing something.</p>
-                <Link to='/'>Return home</Link>
+                <Link to='/'>page is missing, return home &#x2192;</Link>
             </Layout>
         </body>
     )

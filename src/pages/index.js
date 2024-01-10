@@ -1,6 +1,8 @@
 import * as React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
+import Layout from '../components/layout'
+import '../index.css'
 
 const IndexPage = () => {
     const { allContentfulImageEntry } = useStaticQuery(graphql`
@@ -24,31 +26,34 @@ const IndexPage = () => {
     `)
 
     const allImages = allContentfulImageEntry.edges
-    console.log(allImages)
 
     return (
-        <main>
-            <h1
-                style={{
-                    fontFamily: 'Inter, sans-serif',
-                    fontWeight: 200,
-                }}
-            >
-                Edita Ignot Photography
-            </h1>
-            {allImages
-                .sort((a, b) => Number(a.node.order) - Number(b.node.order))
-                .map((edge) => (
-                    <GatsbyImage
-                        key={edge.node.order}
-                        image={getImage(edge.node.image)}
-                        alt={edge.node.title}
-                    />
-                ))}
-        </main>
+        <body>
+            <Layout title='Edita Ignot Photography'>
+                <>
+                    {allImages
+                        .sort(
+                            (a, b) =>
+                                Number(a.node.order) - Number(b.node.order)
+                        )
+                        .map((edge) => (
+                            <GatsbyImage
+                                key={edge.node.order}
+                                image={getImage(edge.node.image)}
+                                alt={edge.node.title}
+                            />
+                        ))}
+                </>
+            </Layout>
+        </body>
     )
 }
 
 export default IndexPage
 
-export const Head = () => <title>Home Page</title>
+export const Head = () => (
+    <>
+        <title>Edita Ignot Photography</title>
+        <meta name='description' content='Edita Ignot Photography Website' />
+    </>
+)
