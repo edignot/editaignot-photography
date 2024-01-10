@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
-import { StaticImage, GatsbyImage, getImage } from 'gatsby-plugin-image'
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 
 const IndexPage = () => {
     const { allContentfulImageEntry } = useStaticQuery(graphql`
@@ -12,7 +12,7 @@ const IndexPage = () => {
                         type
                         image {
                             gatsbyImageData(
-                                width: 1024
+                                width: 3840
                                 placeholder: BLURRED
                                 formats: [AUTO, WEBP, AVIF]
                             )
@@ -23,17 +23,17 @@ const IndexPage = () => {
         }
     `)
 
-    const image = getImage(allContentfulImageEntry.edges[0].node.image)
+    const allImages = allContentfulImageEntry.edges
 
     return (
         <main>
-            <StaticImage
-                src='../images/icon.png'
-                alt='logo'
-                width={50}
-                height={50}
-            />
-            <GatsbyImage image={image} alt='test' />
+            {allImages.map((edge) => (
+                <GatsbyImage
+                    key={edge.node.id}
+                    image={getImage(edge.node.image)}
+                    alt={edge.node.title}
+                />
+            ))}
         </main>
     )
 }
