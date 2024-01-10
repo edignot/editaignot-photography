@@ -1,15 +1,18 @@
 import * as React from 'react'
 import { Link } from 'gatsby'
+import Layout from '../components/layout'
 
 const NotFoundPage = () => {
     return (
-        <main>
-            404: Not Found
-            <Link to='/'>Go home</Link>.
-        </main>
+        <body>
+            <Layout title='Edita Ignot Photography'>
+                <p>We're missing something.</p>
+                <Link to='/'>Return home</Link>
+            </Layout>
+        </body>
     )
 }
 
 export default NotFoundPage
 
-export const Head = () => <title>Not found</title>
+export const Head = () => <title>Page Not Found</title>
