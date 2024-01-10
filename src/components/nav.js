@@ -8,7 +8,8 @@ const Nav = () => {
         <ul className={nav}>
             {pages.map((page) => (
                 <li key={page} className={navItem}>
-                    <Link to={`/gallery/${page}`}>{page}</Link>
+                    {/* fix nav after gallery dynamic pages are created */}
+                    <Link to={'/'}>{page}</Link>
                 </li>
             ))}
         </ul>
