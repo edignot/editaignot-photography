@@ -8,7 +8,7 @@ const IndexPage = () => {
             allContentfulImageEntry {
                 edges {
                     node {
-                        id
+                        order
                         type
                         image {
                             gatsbyImageData(
@@ -24,6 +24,7 @@ const IndexPage = () => {
     `)
 
     const allImages = allContentfulImageEntry.edges
+    console.log(allImages)
 
     return (
         <main>
@@ -35,13 +36,15 @@ const IndexPage = () => {
             >
                 Edita Ignot Photography
             </h1>
-            {allImages.map((edge) => (
-                <GatsbyImage
-                    key={edge.node.id}
-                    image={getImage(edge.node.image)}
-                    alt={edge.node.title}
-                />
-            ))}
+            {allImages
+                .sort((a, b) => Number(a.node.order) - Number(b.node.order))
+                .map((edge) => (
+                    <GatsbyImage
+                        key={edge.node.order}
+                        image={getImage(edge.node.image)}
+                        alt={edge.node.title}
+                    />
+                ))}
         </main>
     )
 }
