@@ -27,6 +27,14 @@ const IndexPage = () => {
 
     return (
         <main>
+            <h1
+                style={{
+                    fontFamily: 'Inter, sans-serif',
+                    fontWeight: 200,
+                }}
+            >
+                Edita Ignot Photography
+            </h1>
             {allImages.map((edge) => (
                 <GatsbyImage
                     key={edge.node.id}
