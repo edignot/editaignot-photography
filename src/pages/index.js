@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
-import Layout from '../components/Layout'
+import Layout from '../components/layout'
 import '../index.css'
 
 const IndexPage = () => {
