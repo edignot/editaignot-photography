@@ -44,7 +44,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
         createPage({
             path: galleryPath,
-            component: path.resolve('./src/templates/gallery.js'), // Replace with your gallery template component
+            component: path.resolve('./src/templates/gallery.js'),
             context: {
                 type,
                 images,

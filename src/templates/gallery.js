@@ -1,4 +1,5 @@
 import React from 'react'
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import Layout from '../components/layout'
 
 const Gallery = ({ pageContext }) => {
@@ -6,7 +7,19 @@ const Gallery = ({ pageContext }) => {
 
     return (
         <body>
-            <Layout title='Edita Ignot Photography'>{type}</Layout>
+            <Layout title='Edita Ignot Photography'>
+                <>
+                    {images
+                        .sort((a, b) => Number(a.order) - Number(b.order))
+                        .map((img) => (
+                            <GatsbyImage
+                                key={img.order}
+                                image={getImage(img.image)}
+                                alt={img.title}
+                            />
+                        ))}
+                </>
+            </Layout>
         </body>
     )
 }
