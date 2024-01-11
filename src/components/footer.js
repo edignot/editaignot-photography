@@ -11,7 +11,6 @@ const Footer = () => {
             <button onClick={handleClick} className={backButton}>
                 &#8593;
             </button>
-            {/* <p>© 2024 Edita Ignot Photography</p> */}
         </footer>
     )
 }
