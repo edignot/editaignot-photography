@@ -3,6 +3,7 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    border: 5px solid red;
 }
 
 .h1 {
