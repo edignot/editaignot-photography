@@ -3,13 +3,13 @@ import { Link } from 'gatsby'
 import { nav, navItem } from './nav.module.css'
 
 const Nav = () => {
-    const pages = ['nature', 'plants']
+    const types = ['nature', 'plant']
     return (
         <ul className={nav}>
-            {pages.map((page) => (
-                <li key={page} className={navItem}>
+            {types.map((type) => (
+                <li key={type} className={navItem}>
                     {/* fix nav after gallery dynamic pages are created */}
-                    <Link to={'/'}>{page}</Link>
+                    <Link to={`/gallery/${type}`}>{type}</Link>
                 </li>
             ))}
         </ul>
