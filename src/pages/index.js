@@ -7,7 +7,7 @@ import '../index.css'
 const IndexPage = () => {
     const { allContentfulImageEntry } = useStaticQuery(graphql`
         query {
-            allContentfulImageEntry {
+            allContentfulImageEntry(filter: { type: { eq: "new" } }) {
                 edges {
                     node {
                         order

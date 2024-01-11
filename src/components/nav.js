@@ -8,7 +8,6 @@ const Nav = () => {
         <ul className={nav}>
             {types.map((type) => (
                 <li key={type} className={navItem}>
-                    {/* fix nav after gallery dynamic pages are created */}
                     <Link to={`/gallery/${type}`}>{type}</Link>
                 </li>
             ))}
