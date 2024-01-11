@@ -3,7 +3,7 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import Layout from '../components/layout'
 
 const Gallery = ({ pageContext }) => {
-    const { type, images } = pageContext
+    const { images } = pageContext
 
     return (
         <body>
