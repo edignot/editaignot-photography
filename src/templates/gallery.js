@@ -9,15 +9,17 @@ const Gallery = ({ pageContext }) => {
         <body>
             <Layout title='Edita Ignot Photography'>
                 <>
-                    {images
-                        .sort((a, b) => Number(a.order) - Number(b.order))
-                        .map((img) => (
-                            <GatsbyImage
-                                key={img.order}
-                                image={getImage(img.image)}
-                                alt={img.title}
-                            />
-                        ))}
+                    {images &&
+                        Array.isArray(images) &&
+                        images
+                            .sort((a, b) => Number(a.order) - Number(b.order))
+                            .map((img) => (
+                                <GatsbyImage
+                                    key={img.order}
+                                    image={getImage(img.image)}
+                                    alt={img.title}
+                                />
+                            ))}
                 </>
             </Layout>
         </body>
